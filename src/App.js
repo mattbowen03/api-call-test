@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import getReddit from "./utils/getReddit";
 
 function App() {
+  const [count, setCount] = useState(0);
+  const [reddit, setReddit] = useState("Loading...");
+
+  const handleIncrement = () => {
+    setCount((prev) => prev + 1);
+  };
+
+  const handleDecrement = () => {
+    setCount((prev) => prev - 1);
+  };
+
+  const handleClick = () => {
+    setReddit(getReddit());
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div className='counter-wrapper'>
+        <h1>Counter!</h1>
+        <h2>{count}</h2>
+        <button onClick={handleDecrement}>Increment</button>
+        <button onClick={handleIncrement}>Increment</button>
+      </div>
+      <div className='reddit-wrapper'>
+        <h1>Reddit!</h1>
+        <h2>{reddit}</h2>
+        <button onClick={handleClick}>Get Reddit</button>
+      </div>
     </div>
   );
 }
