@@ -7,6 +7,7 @@ function App() {
   const [reddit, setReddit] = useState("Loading...");
 
   const handleIncrement = () => {
+    console.log("going up!");
     setCount((prev) => prev + 1);
   };
 
@@ -23,8 +24,8 @@ function App() {
     <div className='App'>
       <div className='counter-wrapper'>
         <h1>Counter!</h1>
-        <h2>{count}</h2>
-        <button onClick={handleDecrement}>Increment</button>
+        <input type='number' value={count} data-testid='poop'></input>
+        <button onClick={handleDecrement}>Decrement</button>
         <button onClick={handleIncrement}>Increment</button>
       </div>
       <div className='reddit-wrapper'>
