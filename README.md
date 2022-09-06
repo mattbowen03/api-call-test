@@ -27,6 +27,7 @@ const getReddit = async () => {
 };
 
 export { getReddit };
+
 ```
 
 ### Here's how you mock and test it:
