@@ -4,7 +4,7 @@ const getReddit = async () => {
     const data = await result.json();
     return data.kind;
   } catch (e) {
-    return null;
+    return "error!";
   }
 };
 
