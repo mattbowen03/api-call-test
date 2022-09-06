@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState } from "react";
-import getReddit from "./utils/getReddit";
+import { getReddit } from "./utils/getReddit";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,8 +14,9 @@ function App() {
     setCount((prev) => prev - 1);
   };
 
-  const handleClick = () => {
-    setReddit(getReddit());
+  const handleClick = async () => {
+    const temp = await getReddit();
+    setReddit(temp);
   };
 
   return (

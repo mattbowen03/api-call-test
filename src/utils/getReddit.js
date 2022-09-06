@@ -8,4 +8,4 @@ const getReddit = async () => {
   }
 };
 
-export default getReddit;
+export { getReddit };
