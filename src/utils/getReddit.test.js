@@ -6,12 +6,8 @@ beforeAll(() => {
   global.fetch = unmockedFetch;
 });
 
-afterAll(() => {
-  global.fetch = unmockedFetch;
-});
-
 describe("fetch API call", () => {
-  test('returns mocked response "Listing"', async () => {
+  test('returns a mocked response: kind: "Listing"', async () => {
     global.fetch = () =>
       Promise.resolve({
         json: () =>
@@ -28,18 +24,5 @@ describe("fetch API call", () => {
     global.fetch = () => Promise.resolve();
     const response = await getReddit();
     expect(response).toEqual("error!");
-  });
-
-  test("returns unexpected response", async () => {
-    global.fetch = () =>
-      Promise.resolve({
-        json: () =>
-          Promise.resolve({
-            kind: "Some other string...",
-          }),
-      });
-
-    const response = await getReddit();
-    expect(response).not.toEqual("Listing");
   });
 });
