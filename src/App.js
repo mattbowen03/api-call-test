@@ -13,7 +13,7 @@ function App() {
   return (
     <div className='App'>
       <div className='reddit-wrapper'>
-        <h1>Reddit!</h1>
+        <h1>Api call to Reddit</h1>
         <h2>{reddit}</h2>
         <button onClick={handleClick}>Get Reddit</button>
         <p>
